@@ -33,7 +33,9 @@ module.exports.routes = {
   '/foodpair': 'MainController.foodpairGateway',
 
   '/auth/twitter': 'ParticipantController.createTwitter',
-  '/auth/twitter/callback': 'ParticipantController.twitterCallback'
+  '/auth/twitter/callback': 'ParticipantController.twitterCallback',
+
+  '/proposals': 'ProposalController.getProposals'
 
 };
 
