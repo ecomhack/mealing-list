@@ -28,5 +28,14 @@ module.exports.routes = {
 
   '/foodpair': 'MainController.foodpairGateway',
 
+  '/bt-token': 'MainController.btToken',
+  '/checkout': 'MainController.checkout',
+  '/test': {
+    view: 'payments-success',
+    locals: {
+      amount: '€' + '10.00'
+    }
+  }
+
 };
 

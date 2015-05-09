@@ -1,3 +1,8 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+
 
 <div ng-controller="CreateEventController">
     {{ test }}
@@ -10,3 +15,44 @@
 </form>
 
 <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+
+<script>
+  function getAccessToken() {
+    var xml = new XMLHttpRequest();
+    xml.onload = function() {
+      var token = xml.responseText;
+
+      //console.log(token);
+
+      
+      braintree.setup(token, "dropin", {
+        container: "payment-form"
+      });
+    };
+    xml.open('GET', '/bt-token');
+    xml.send();
+
+
+    //
+    //
+    // app.get("/client_token", function (req, res) {
+    //   gateway.clientToken.generate({
+    //       customerId: aCustomerId
+    //     }, function (err, response) {
+    // 	    res.send(response.clientToken);
+    // 	  });
+    // });
+    //
+    //
+    // app.post("/purchases", function (req, res) {
+    //   var nonce = req.body.payment_method_nonce;
+    //   // Use payment method nonce here
+    //   });
+    //
+    // gateway.transaction.sale({
+    //   amount: '10.00',
+    //   paymentMethodNonce: 'nonce-from-the-client',
+    // }, function (err, result) {
+    // });
+  }
+</script>
