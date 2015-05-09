@@ -6,12 +6,13 @@
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <!--STYLES-->
-    <link rel="stylesheet" href="/styles/greenify.min.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/vendor/jquery-mobile-bower/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="/styles/greenify.min.css">
     <!--STYLES END-->
   </head>
 
@@ -19,12 +20,12 @@
     <div data-role="page" class="jqm-demos jqm-home">
         <div data-role="header" class="jqm-header">
             <h1>Mealing List</h1>
-            <a href="#" class="ui-btn ui-btn-icon-notext ui-corner-all ui-icon-search ui-nodisc-icon ui-alt-icon ui-btn-right">Search</a>
+            <a href="#" class="ui-btn ui-btn-icon-notext ui-corner-all ui-icon-forward ui-nodisc-icon ui-alt-icon ui-btn-right">Share</a>
         </div>
         <div role="main" class="ui-content jqm-content">
             <%- body %>
         </div>
-        <div data-role="footer">
+        <div data-role="footer" data-position="fixed">
             <div data-role="navbar">
                 <ul>
                     <li><a href="#" data-icon="edit">Dishes</a></li>
