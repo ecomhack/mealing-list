@@ -2,13 +2,11 @@
 <div ng-controller="EventController">
   <!-- DISHES LIST -->
   <div ng-show="!selectedDish" class="dishes-list">
-    <div class="input-group">
-      <input type="text" ng-model="createDishInput">
-      <div class="input-group-btn">
-        <button class="btn btn-default" ng-click="createDish()">
-          <span class="glyphicon glyphicon-plus"></span>
-        </button>
-      </div>
+    <div data-role="controlgroup" data-type="horizontal">
+      <input type="text" ng-model="createDishInput" data-wrapper-class="controlgroup-textinput ui-btn">
+      <button ng-click="createDish()">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
     </div>
 
     <ul data-role="listview" data-inset="true">
@@ -34,7 +32,7 @@
         </button>
       </div>
     </div>
-    
+
     <ul data-role="listview" data-inset="true">
       <li ng-repeat="ingredient in selectedDish.ingredients">
         <button class="pull-right btn btn-default">
@@ -44,6 +42,6 @@
       </li>
     </ul>
   </div>
-  <!-- END iNGREDIENT LIST -->
+  <!-- END INGREDIENT LIST -->
 </div>
 
