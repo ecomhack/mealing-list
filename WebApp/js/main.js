@@ -6,11 +6,6 @@ var MAX_SUGGESTIONS = 10;
 var CATEGORY_SAMPLES = 3;
 var MIN_SCORE = 0.3;
 
-// Internal data structures
-var usedIngredients = [3999];
-var scores = [];
-var categoryCounter = 0; // keep track of the async ajax events
-
 // FoodPairing API Data
 var ingredients = [3999, 140, 4853, 5155, 1337, 548, 18];
 var categories = [376, 377, 378, 379, 380, 381, 382];
@@ -80,7 +75,7 @@ function addMatches(data) {
 
 		var suggestions = 0;
 
-		$.each(scores, function(index, score) {
+		scores.forEach(function(score) {
 			if(suggestions < MAX_SUGGESTIONS && score.score >= MIN_SCORE) {
 				addIngredient(score.ingredient);
 				suggestions++;
@@ -120,15 +115,16 @@ function addIngredient(data) {
 }
 
 function main() {
-	/*$.each(ingredients, function(index, ingredient) {
-		getFoodData(ingredient);
-	});*/
-
 	//loadIngredients();
 	//loadMatches(377, 4824);
 	//loadMatches(378, "5155");
-	//loadIngredient(5155)
-	$.each(categories, function(index, cat) {
+	//loadIngredient(5155);
+
+	var usedIngredients = [3999];
+	var scores = [];
+	var categoryCounter = 0; // keep track of the async ajax events
+
+	categories.forEach(function(cat) {
 		loadMatches(cat, usedIngredients.join(), CATEGORY_SAMPLES);
 	});
 }
