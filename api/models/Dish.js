@@ -17,13 +17,13 @@ module.exports = {
 
     locked: 'bool',
 
-    dish: {
-      model: 'event'
-    },
-
     ingredients: {
       collection: 'ingredient',
       via: 'dish'
+    },
+
+    event: {
+      model: 'event'
     }
 
   }

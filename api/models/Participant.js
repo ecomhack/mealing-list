@@ -12,7 +12,7 @@ module.exports = {
     name: 'string',
 
     events: {
-      collection: 'events',
+      collection: 'event',
       via: 'participants'
     }
 
