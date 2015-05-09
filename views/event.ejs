@@ -25,15 +25,15 @@
     </button>
 
     <div class="input-group">
-      <input class="form-control" ng-model="createDishInput">
+      <input class="form-control" ng-model="createIngredientInput">
       <div class="input-group-btn">
-        <button class="btn btn-default" ng-click="createDish()">
+        <button class="btn btn-default" ng-click="createIngredient()">
           <span class="glyphicon glyphicon-plus"></span>
         </button>
       </div>
     </div>
 
-    <div class="ingredient" ng-repeat="ingredient in selectedDish.ingredients">
+    <div class="ingredient clearfix" ng-repeat="ingredient in selectedDish.ingredients">
       <button class="pull-right btn btn-default">
         <span class="glyphicon glyphicon-ok"></span>
       </button>
