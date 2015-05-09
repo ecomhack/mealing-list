@@ -1,5 +1,5 @@
 
-<div style="max-width: 500px" class="container" ng-controller="EventController">
+<div ng-controller="EventController">
   <!-- DISHES LIST -->
   <div ng-show="!selectedDish" class="dishes-list">
     <div class="input-group">
@@ -11,10 +11,12 @@
       </div>
     </div>
 
-    <div ng-repeat="dish in dishes" ng-click="selectDish(dish)">
-      <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+    <ul data-role="listview" data-inset="true">
+      <li ng-repeat="dish in dishes" ng-click="selectDish(dish)">
+        <span class="glyphicon glyphicon-chevron-right pull-right"></span>
       {{ dish.title }}
-    </div>
+      </li>
+    </ul>
   </div>
   <!-- END DISHES LIST -->
 
@@ -32,13 +34,15 @@
         </button>
       </div>
     </div>
-
-    <div class="ingredient clearfix" ng-repeat="ingredient in selectedDish.ingredients">
-      <button class="pull-right btn btn-default">
-        <span class="glyphicon glyphicon-ok"></span>
-      </button>
-      {{ ingredient.title }}
-    </div>
+    
+    <ul data-role="listview" data-inset="true">
+      <li ng-repeat="ingredient in selectedDish.ingredients">
+        <button class="pull-right btn btn-default">
+          <span class="glyphicon glyphicon-ok"></span>
+        </button>
+        {{ ingredient.title }}
+      </li>
+    </ul>
   </div>
   <!-- END iNGREDIENT LIST -->
 </div>

@@ -15,6 +15,8 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
+  'vendor/jquery-mobile-bower/jquery.mobile-1.4.5.css',
+  'styles/greenify.min.css',
   'styles/**/*.css',
   'vendor/**/*.css'
 ];
