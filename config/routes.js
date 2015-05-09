@@ -26,6 +26,10 @@ module.exports.routes = {
     view: 'homepage'
   },
 
+  '/event/view': {
+    view: 'event'
+  },
+
   '/foodpair': 'MainController.foodpairGateway',
 
   '/bt-token': 'MainController.btToken',

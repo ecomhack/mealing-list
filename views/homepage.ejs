@@ -5,7 +5,15 @@
 
 
 <div ng-controller="CreateEventController">
-    {{ test }}
+  <div style="max-width: 300px" class="container">
+    <input class="form-control" ng-model="title" placeholder="Event Title">
+    <input class="form-control" ng-model="date" input="date" placeholder="Event Date">
+    <input class="form-control" ng-model="location" placeholder="Event Location">
+
+    <br>
+
+    <button ng-click="createEvent()" class="btn btn-primary">Create Event!</button>
+  </div>
 </div>
 
 <form id="checkout" method="post" action="/checkout">
