@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dinner Party</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/jqm-datebox-1.4.5.min.css" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="jqm/demos/favicon.ico">
+		<link rel="stylesheet" href="jqm/demos/css/themes/default/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" href="css/jqm-datebox-1.4.5.min.css">
+		<link rel="stylesheet" href="jqm/demos/_assets/css/jqm-demos.css">
+	    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+		<script src="jqm/demos/js/jquery.js"></script>
+		<!--<script src="jqm/demos/_assets/js/index.js"></script>-->
+		<script src="jqm/demos/js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/editable-listview.js"></script>
+		<!--<script src="js/datebox.js"></script>-->
+		<script type="text/javascript" src="js/main.js"></script>
+	</head>
+	<body>
+		<div data-role="page" class="jqm-demos jqm-home">
+			<div data-role="header" class="jqm-header">
+				<h2 id="heading">Dinner Party</h2>
+				<!--<p>Version 0.0.1&alpha;</p>-->
+				<a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>
+				<a href="#" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-search ui-nodisc-icon ui-alt-icon ui-btn-right">Search</a>
+			</div><!-- /header -->
+
+			<div role="main" class="ui-content jqm-content">
+				<table>
+					<tr>
+						<td class="label">I'd like to bring</td>
+						<td><input type="text" name="dish"></td>
+					</tr>
+					<tr>
+						<td class="label">It contains the following ingredients:</td>
+						<td>
+							<!--<ul id="dish" data-role="listview" data-editable="true" data-inset="true" data-filter="true" data-filter-placeholder="Find a dish..." data-filter-theme="d" data-filter-reveal="true">
+								<li>Brownies</li><li>Caesar's Salad</li><li>Chicken Soup</li>
+							</ul>-->
+							<ul id="ingredients" data-role="listview" data-editable="true" data-editable-type="complex" data-editable-form="editing-form" data-title="Ingredients" data-empty-title="No ingredients">
+								<li><a>
+									<h3><span id="ingredient">Salt</span></h3>
+									<p><em>Amount:</em> <strong><span id="amount">1</span></strong></p>
+									<p><em>Description:</em> <strong><span id="description">Just plain salt.</span></strong></p>
+								</a></li>
+							</ul>
+							<form id="editing-form" data-editable-form="true">
+							    <input type="text" data-item-name="ingredient" data-item-template="<h3><span id='ingredient'>%%</span></h3>">
+							    <input type="text" data-item-name="amount" data-item-template="<p><em>Amount:</em> <strong><span id='amount'>%%</span></strong></p>">
+							    <input type="text" data-item-name="description" data-item-template="<p><em>Description:</em> <strong><span id='description'>%%</span></strong></p>">
+							    <button class="ui-btn ui-corner-all" data-add-button="true">Add</button>
+							    <button class="ui-btn ui-corner-all" data-clear-button="true">Clear</button>
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td class="label">I'll arrive at</td>
+						<td><input type="text" name="time"></td>
+					</tr>
+					<tr>
+						<td class="label">I wouldn't mind to do the shopping</td>
+						<td><select name="shop" id="shop" data-role="slider">
+							<option value="off">Yes</option>
+							<option value="on">No</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td class="label">I'll bring some friends:</td>
+						<td><input type="text" name="friends" maxlength="3"></td>
+					</tr>
+				</table>
+
+				<div id="dishes"><ul></ul></div>
+			</div> <!-- /main -->
+		</div>
+	</body>
+</html>

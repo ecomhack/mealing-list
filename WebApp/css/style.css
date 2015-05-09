@@ -1,0 +1,28 @@
+/* style.css */
+/* (c) 2015 by Milan Gruner */
+
+body {
+	background-color: #2A3;
+}
+
+#heading {
+	font-size: 40pt;
+}
+
+td {
+	padding: 10px;
+	margin: 10px;
+}
+
+#shop {
+	width: 100% !important;
+}
+
+td.label {
+	font-size: 20pt;
+}
+
+p {
+	font-size: 25pt;
+}
+
