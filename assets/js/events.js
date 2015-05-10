@@ -1,10 +1,13 @@
 // event.js
 
 $(function() {
-	$('#ingredients input[data-type="search"]').on('keydown', function(e) {
+	console.log($('input[data-type="search"]'));
+	$('input[data-type="search"]').on('keydown', function(e) {
 		var code = (e.keyCode ? e.keyCode : e.which);
+		console.log('AAAA', $(this).val(), code);
 		if(code == 13) {
-			$(this).scope().createIngredient($(this).text());
+			$(this).scope().createIngredient($(this).val());
+			$(this).val('');
 		}
 	});
 
@@ -29,6 +32,7 @@ $(function() {
 					var li = $('<li><a>' + val.html + '</a></li>')
 						.appendTo($ul)
 						.click(function() {
+							console.log(val.text);
 							$(this).scope().createIngredient(val.text);
 						});
 				});

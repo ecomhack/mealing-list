@@ -182,12 +182,12 @@ angular.module('mealingList')
       });
     }
 
-    $scope.createIngredient = function createIngredient() {
+    $scope.createIngredient = function createIngredient(val) {
       if (!$scope.selectedDish)
         throw 'WTF?';
 
       io.socket.post('/ingredient', {
-        title: $scope.createIngredientInput,
+        title: val || $scope.createIngredientInput,
         dish: $scope.selectedDish.id
       }, function(data, jwres) {
         if (!report('Create Ingredient', jwres, true))
