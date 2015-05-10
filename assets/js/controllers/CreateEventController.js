@@ -11,7 +11,7 @@ angular.module('mealingList')
         if (!report('Creating Event', jwres, true))
           return;
 
-        window.location = '/event/view?id=' + data.id;
+        window.location = '/event/view/' + data.id;
       });
     };
   });

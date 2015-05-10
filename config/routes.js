@@ -28,6 +28,7 @@ module.exports.routes = {
 
   '/event/view/:id': 'EventController.view',
   '/event/pay/:id': 'EventController.pay',
+  '/event/outstanding/:id': 'EventController.outstanding',
 
   '/foodpair': 'MainController.foodpairGateway',
 
@@ -37,7 +38,7 @@ module.exports.routes = {
   '/proposals': 'ProposalController.getProposals',
 
   '/bt-token': 'MainController.btToken',
-  '/checkout': 'MainController.checkout',
+  '/checkout': 'MainController.checkout'
 
 };
 

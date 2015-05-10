@@ -1,6 +1,27 @@
 
 angular.module('mealingList')
-  .controller('PayController', function($scope) {
+  .controller('PayController', function($scope, report) {
+    var eventId = window.location.pathname.split('/');
+    if (eventId.length != 4)
+      return alert('Invalid URL!');
+
+    eventId = eventId[3];
+
+    io.socket.get('/event/outstanding/' + eventId, function(data, jwres) {
+      if (!report('Fetching Outstanding Items', jwres, true))
+        return;
+
+      $scope.$apply(function() {
+        $scope.ingredients = data;
+        $scope.amount = (2.99 * data.length).toString();
+      });
+    });
+
+    io.socket.get('/event/' + eventId, function(data, jwres) {
+      if (data.participants)
+        $scope.persons = data.participants.length;
+    });
+
     function addTrailingZeros(num) {
       var parts = num.split('.');
       if (parts.length == 2)

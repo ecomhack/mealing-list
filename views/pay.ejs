@@ -1,11 +1,34 @@
 
 <div ng-controller="PayController">
-  <form id="checkout" method="post" action="/checkout">
-    <input type="text" name="amount" placeholder="Amount you want to divide" ng-model="amount"/>
-    <input type="text" name="persons" placeholder="Number of persons"  ng-model="persons">
-    <div id="payment-form"></div>
-    <input ng-disabled="!numberIsValid(amount,persons)" type="submit" id="pay-button" ng-attr-value="{{ getInputText(amount, persons) }}">
-  </form>
+  <div data-role="controlgroup" data-type="horizontal">
+    <button ng-class="{ active: !checkout }" btn-default" ng-click="checkout = false">
+      <span class="glyphicon glyphicon-th-list"></span>
+    </button>
+    <button ng-class="{ active: checkout }" ng-click="checkout = true">
+      <span class="glyphicon glyphicon-piggy-bank"></span>
+    </button>
+  </div>
+
+  <br>
+
+  <div ng-show="!checkout">
+    <h2 style="color: white; margin-top: 6px;">Things to be bought</h2>
+
+    <ul class="item-list">
+      <li ng-repeat="ingredient in ingredients">
+        {{ ingredient.title }}
+      </li>
+    </ul>
+  </div>
+
+  <div ng-show="checkout">
+    <form id="checkout" method="post" action="/checkout">
+      <input type="text" name="amount" placeholder="Amount you want to divide" ng-model="amount"/>
+      <input type="text" name="persons" placeholder="Number of persons"  ng-model="persons">
+      <div id="payment-form"></div>
+      <input ng-disabled="!numberIsValid(amount,persons)" type="submit" id="pay-button" ng-attr-value="{{ getInputText(amount, persons) }}">
+    </form>
+  </div>
 
   <mealing-login user="user"></mealing-login>
 </div>
