@@ -1,0 +1,16 @@
+
+<div ng-controller="PayController">
+  <form id="checkout" method="post" action="/checkout">
+    <input type="text" name="amount" placeholder="Amount you want to divide" ng-model="amount"/>
+    <input type="text" name="persons" placeholder="Number of persons"  ng-model="persons">
+    <div id="payment-form"></div>
+    <input ng-disabled="!numberIsValid(amount,persons)" type="submit" id="pay-button" ng-attr-value="{{ getInputText(amount, persons) }}">
+  </form>
+</div>
+
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+<script>
+
+
+</script>
+
