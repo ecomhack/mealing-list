@@ -1,0 +1,44 @@
+
+.item-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 -1em;
+
+  @height: 58px;
+
+  .extra {
+    height: @height - 2px;
+    width: @height - 2px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.4);
+
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .extra-active {
+    color: #fff;
+  }
+
+  li {
+    padding: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    color: white;
+    background-color: #222;
+    height: @height;
+    position: relative;
+
+    .icon-text {
+      margin-right: 12px;
+    }
+
+    &:first-child {
+      border-top: 1px solid rgba(0, 0, 0, 0.6);
+    }
+  }
+}
