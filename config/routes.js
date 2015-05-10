@@ -41,7 +41,8 @@ module.exports.routes = {
   '/event/:event/dish': 'DishController.getForEventDeep',
 
   '/bt-token': 'MainController.btToken',
-  '/checkout': 'MainController.checkout'
+  '/checkout': 'MainController.checkout',
+
+  '/product': 'SphereController.getProduct'
 
 };
-

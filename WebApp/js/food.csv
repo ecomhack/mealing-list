@@ -74,8 +74,6 @@
 77,Lemon-lime soda
 78,Mango nectar
 
-#########
-
 81,Passion fruit juice
 82,Peach juice
 83,Pear juice
@@ -83,14 +81,15 @@
 
 
 99,Blackcurrant
-104,Fig
-103,Fig
 100,Blueberry
-102,Cranberry
 101,Buddha's hand
+102,Cranberry
+103,Fig
+104,Fig
 106,Grapefruit peel
-108,Griottines®
 107,Grapes
+108,Griottines®
+
 105,Grapefruit
 109,Guava
 110,Kiwi
@@ -166,3 +165,112 @@
 180,Star anise
 181,Thyme
 182,Vanilla 'Bourbon'
+
+185,Cane syrup
+188,Cinnamon syrup
+190,Coffee beans
+193,Egg white
+194,Lime
+198,Maraschino cherry
+196,Lemon
+200,Orange
+201,Orange marmelade
+202,pasteurized egg white
+203,pineapple leaf
+204,Rye Whiskey
+205,Rye Whiskey or Bourbon
+191,Cream
+192,Crème de Mûre
+195,gum syrup
+206,salt rim
+207,sugar rim
+208,sugar syrup
+209,Tabasco®
+211, Crème de Menthe White
+212,Worcestershire sauce
+199,Olive or lemon peel
+213,Espresso coffee
+214,Raspberry puree
+216,Asti
+219,Cava
+220,Cava Brut nature
+221,Cava Dulce
+223,Cava Extra Seco
+224,Cava Rosado
+225,Cava Seco
+226,Cava Semiseco
+227,Chablis
+229,Champagne Blanc de Blancs
+228,Chambolle-Musigny
+230,Champagne Blanc de noirs
+231,Champagne Brut
+232,Champagne Demi-sec
+233,Champagne Doux
+234,Champagne Extra brut
+235,Champagne Extra Dry
+215,Strawberry puree
+236,Champagne Sec
+218,Cabernet-Merlot
+237,Chardonnay (oak)
+238,Château Guiraud
+217,Beaujolais Nouveau
+239,Château-Chalon AOC
+241,Crémant de Bordeaux
+240,Crémant d'Alsace
+242,Crémant de Bourgogne
+243,Crémant de Die
+222,Cava Extra Brut
+244,Crémant de Limoux
+245,Crémant de Loire
+246,Crémant de Luxembourg
+249,Dry Red wine
+247,Crémant du Jura
+248,Chardonnay Meerdael
+252,Dubonnet
+251,Dry White wine
+253,Echezeaux
+255,G.H. Mumm Cordon Rouge
+254,G.H. Mumm 2002
+250,Rosé wine
+256,G.H. Mumm Cuvée R. Lalou 1998
+258,G.H. Mumm Rosé
+257,G.H. Mumm Demi-Sec
+259,Graham's 20 Years Tawny
+261,Grenache rosé
+264,Ice Wine, white
+263,Ice Wine red
+260,Graham's Six Grapes
+265,Noble rot wine
+262,Grenache
+269,Martini Rosso
+266,Lambrusco
+267,Madeira
+268,Malvasia Delle Lipari
+272,Montilla-Moriles 'Fino'
+270,Martini Bianco
+271,Young Merlot
+273,Moscato di Noto
+274,Mumm de Cramant
+278,Pouilly-Fumé
+275,Noilly Prat
+282,Prosecco Frizzante Extra Dry
+284,Prosecco Spumante Brut
+283,Spumante
+285,Prosecco Spumante Dry
+288,Raisin Wine red
+287,Quinta dos Malvedos 1999 Vintage Port
+290,Right-bank Bordeaux
+293,Sekt
+292,Sauternes
+291,Sancerre
+294,Sherry 'Amontillado'
+296,Sweet Rosé Wine
+295,Sherry 'Fino'
+297,Sweet White Wine
+299,Vin Jaune
+298,Vermouth
+280,Prosecco Frizzante Brut
+189,Coca-Cola®
+286,Prosecco Spumante Extra Dry
+289,Raisin Wine, white
+281,Prosecco Frizzante Dry

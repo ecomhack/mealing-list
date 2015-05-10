@@ -2,7 +2,8 @@
 <div ng-controller="EventController">
   <!-- DISHES LIST -->
   <div ng-show="!selectedDish" class="dishes-list">
-    <input mealing-confirm="createDish()" type="text" ng-model="createDishInput">
+    <h1>Your Event's Dishes</h1>
+    <input mealing-confirm="createDish()" type="text" ng-model="createDishInput" placeholder="Add a dish">
 
     <ul class="item-list">
       <li ng-repeat="dish in dishes" ng-click="selectDish(dish)">
@@ -22,8 +23,9 @@
     <button class="btn btn-default" ng-click="selectDish()">
       <span class="glyphicon glyphicon-chevron-left"></span> {{ selectedDish.title }}
     </button>
+    <h1>Ingredients List</h1>
 
-    <input mealing-confirm="createIngredient()" type="text" ng-model="createIngredientInput">
+    <input mealing-confirm="createIngredient()" type="text" ng-model="createIngredientInput" placeholder="Add Ingredient">
 
     <ul class="item-list">
       <li ng-repeat="ingredient in selectedDish.ingredients" class="clearfix">

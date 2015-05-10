@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "sphere-node-sdk": "latest",
     "MD5": "^1.2.1",
     "algoliasearch": "^3.2.3",
     "async": "^0.9.0",
