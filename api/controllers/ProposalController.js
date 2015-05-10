@@ -90,8 +90,15 @@ module.exports = {
       if (err)
         return res.negotiate(err);
 
-      console.log(data);
-      return res.send(data);
+      if (!data.hits)
+        return [];
+
+      return res.send(data.hits.map(function(hit) {
+        return {
+          html: hit._highlightResult.title.value,
+          text: hit.title
+        };
+      }));
     })
   }
 };
