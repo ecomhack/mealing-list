@@ -7,7 +7,8 @@ angular.module('mealingList')
 
     eventId = eventId[3];
 
-    io.socket.get('/dish?where={"event":"' + eventId + '"}', function(data, jwres) {
+    //io.socket.get('/dish?where={"event":"' + eventId + '"}', function(data, jwres) {
+    io.socket.get('/event/' + eventId + '/dish', function(data, jwres) {
       if (!report('Loading dishes', jwres, true))
         return;
 
@@ -137,6 +138,7 @@ angular.module('mealingList')
     $scope.getGravatar = function(participant) {
       var url = 'http://www.gravatar.com/avatar/' + participant.emailHash + 's=56&d=mm';
 
+      console.log(url);
       return url;
     };
 
