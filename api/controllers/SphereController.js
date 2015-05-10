@@ -1,26 +1,42 @@
 // SphereController.js
 
 var SphereClient = require('sphere-node-sdk').SphereClient;
+var util = require('util');
 
 var Config = {
-  client_id: process.env.SPHERE_CLIENT || 'hyWZkA729LJY-QFwug0IpVej',
-  client_secret: process.env.SPHERE_SECRET || 'YMEATGctVjEvpFFrc6JxOkDRsgmZeU2O',
-  project_key: process.env.SPHERE_PROJECT || 'manage_project:ecomhack-demo-45'
+	config: {
+		client_id: process.env.SPHERE_CLIENT || 'hyWZkA729LJY-QFwug0IpVej',
+		client_secret: process.env.SPHERE_SECRET || 'YMEATGctVjEvpFFrc6JxOkDRsgmZeU2O',
+		project_key: process.env.SPHERE_PROJECT || 'ecomhack-demo-45'
+	}
 };
 
 module.exports = {
-	getProduct: function(req, res) {
-		//var product = req.param('product');
-		var product = "Rice";
+	buildCart: function(req, res) {
+		var event = req.param('event');
 
-		// init SphereIO connection
+		console.log(Config);
 		var client = new SphereClient(Config);
-
 		var service = client.productProjections;
-		service.where('name(en = "'+product+'")').staged(true).fetch()
-		.then(function(result) {
-		    res.send(result);
-		    console.log(result);
+
+		Event.getOutStanding(event, function(err, list) {
+			if (err)
+				return res.negotiate(err);
+
+			var due = list.length - 1;
+
+			list.forEach(function(product) {
+				console.log(product);
+
+				service.where('name(en = "' + product + '")').staged(true).fetch()
+					.then(function(result) {
+						console.log('GOT SOMETHIN')
+						console.log(result, { showHidden: true, depth: null });
+
+						if (--due <= 0)
+							return res.send();
+					});
+			});
 		});
 	}
 };

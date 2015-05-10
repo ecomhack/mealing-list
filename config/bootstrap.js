@@ -28,7 +28,7 @@ module.exports.bootstrap = function(cb) {
   var file = fs.readFileSync(__dirname + '/../WebApp/js/food.csv') + '';
   var lines = file.split('\n');
 
-  var due = lines.length + 1;
+  var due = lines.length - 1;
 
   lines.forEach(function(line) {
     var parts = line.split(',');

@@ -43,6 +43,6 @@ module.exports.routes = {
   '/bt-token': 'MainController.btToken',
   '/checkout': 'MainController.checkout',
 
-  '/product': 'SphereController.getProduct'
+  '/buildcart/:event': 'SphereController.buildCart'
 
 };

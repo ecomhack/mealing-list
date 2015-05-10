@@ -25,16 +25,11 @@ module.exports = {
 
     outstanding: function(req, res) {
         var event = req.param('id');
-        Dish.find({ event: event }).populate('ingredients').exec(function(err, result) {
+        Event.getOutStanding(event, function(err, list) {
             if (err)
                 return res.negotiate(err);
 
-            var all = result.reduce(function(prev, cur) {
-                return prev.concat(cur.ingredients.filter(function(i) {
-                    return !i.providedBy || i.providedBy == '0';
-                }));
-            }, []);
-            res.send(all);
+            return res.send(list);
         });
     }
 

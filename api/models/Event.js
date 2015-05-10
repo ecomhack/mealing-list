@@ -27,6 +27,20 @@ module.exports = {
       via: 'events'
     }
 
+  },
+
+  getOutStanding: function getOutStanding(event, cb) {
+    Dish.find({ event: event }).populate('ingredients').exec(function(err, result) {
+      if (err)
+        return cb(err);
+
+      var all = result.reduce(function(prev, cur) {
+        return prev.concat(cur.ingredients.filter(function(i) {
+          return !i.providedBy || i.providedBy == '0';
+        }));
+      }, []);
+      cb(null, all);
+    });
   }
 
 };
