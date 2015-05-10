@@ -8,27 +8,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/vendor/jquery-mobile-bower/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/jqm-flatui/css/jquery.mobile.flatui.min.css">
+    <link rel="stylesheet" href="/vendor/jqm-flatui/css/jquery.mobile.theme.css">
     <!--STYLES END-->
   </head>
 
-  <body class="ui-body ui-body-d">
+  <body class="ui-body-d">
     <div data-role="page" class="jqm-demos jqm-home">
         <div data-role="header" class="jqm-header">
             <h2>Mealing List</h2>
-            <a href="#" data-icon="action" data-inline="true" data-corners="all" class="ui-btn-right">Share</a>
+            <a href="#" onclick="$('#shareModal').modal('show')" data-icon="action" data-inline="true" data-corners="all" class="ui-btn-right">Share</a>
         </div>
         <div role="main" class="ui-content jqm-content">
             <%- body %>
         </div>
+      <% if (typeof eventId !== 'undefined') { %>
         <div data-role="footer" data-position="fixed" style="position:fixed; bottom:0;">
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#" data-icon="edit">Dishes</a></li>
-                    <li><a href="#" data-icon="shop">Shopping</a></li>
+                    <li><a href="<%= typeof eventId !== 'undefined' ? '/event/view/' + eventId : '#' %>" data-icon="edit">Dishes</a></li>
+                    <li><a href="<%= typeof eventId !== 'undefined' ? '/event/pay/' + eventId : '#' %>" data-icon="shop">Shopping</a></li>
                     <li><a href="#" data-icon="gear">Settings</a></li>
                 </ul>
             </div>
         </div>
+      <% } %>
+    </div>
+
+    <div class="modal modal-fade" id="shareModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4>Share Link</h4>
+          </div>
+
+          <div class="modal-body">
+            <p>Send This Link to All Participants:</p>
+
+            <input id="shareLink" readonly class="form-control">
+          </div>
+        </div>
+      </div>
     </div>
 
     <!--TEMPLATES-->
@@ -37,6 +63,7 @@
 
     <!--SCRIPTS-->
     <script src="/vendor/jquery/jquery.js"></script>
+    <script src="/js/kill-jqm-routing.js"></script>
     <script src="/vendor/angular/angular.js"></script>
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/vendor/bootstrap/bootstrap.js"></script>
@@ -45,7 +72,15 @@
     <script src="/js/app.js"></script>
     <script src="/js/controllers/CreateEventController.js"></script>
     <script src="/js/controllers/EventController.js"></script>
+    <script src="/js/controllers/PayController.js"></script>
+    <script src="/js/directives/MealingLogin.js"></script>
+    <script src="/js/directives/mealingConfirm.js"></script>
     <script src="/js/services/SailsCollection.js"></script>
     <!--SCRIPTS END-->
+
+    <script>
+      $('#shareLink').val(window.location.href);
+    </script>
+
   </body>
 </html>

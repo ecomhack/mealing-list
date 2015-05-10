@@ -6,6 +6,23 @@
  */
 
 module.exports = {
-	
+
+    view: function(req, res) {
+      var id = req.param('id');
+
+      res.view('event', {
+        eventId: id
+      });
+    },
+
+    pay: function(req, res) {
+      var id = req.param('id');
+
+      res.view('pay', {
+        eventId: id
+      });
+    }
+
+
 };
 

@@ -6,11 +6,9 @@
     <div id="payment-form"></div>
     <input ng-disabled="!numberIsValid(amount,persons)" type="submit" id="pay-button" ng-attr-value="{{ getInputText(amount, persons) }}">
   </form>
+
+  <mealing-login user="user"></mealing-login>
 </div>
 
 <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
-<script>
-
-
-</script>
 

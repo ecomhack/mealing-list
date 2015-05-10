@@ -27,6 +27,7 @@ var cssFilesToInject = [
 var jsFilesToInject = [
   
   'vendor/jquery/jquery.js',
+  'js/kill-jqm-routing.js',
   'vendor/angular/angular.js',
 
   // Load sails.io before everything else

@@ -1,10 +1,11 @@
 
 angular.module('mealingList')
   .controller('EventController', function($scope, report) {
-    if (!window.location.search)
-      return alert('Invalid page parameters.');
+    var eventId = window.location.pathname.split('/');
+    if (eventId.length != 4)
+      return alert('Invalid URL!');
 
-    var eventId = window.location.search.split('=')[1];
+    eventId = eventId[3];
 
     io.socket.get('/dish?where={"event":"' + eventId + '"}', function(data, jwres) {
       if (!report('Loading dishes', jwres, true))
@@ -134,7 +135,6 @@ angular.module('mealingList')
     }
 
     $scope.getGravatar = function(participant) {
-      console.log('GET', participant);
       var url = 'http://www.gravatar.com/avatar/' + participant.emailHash + 's=56&d=mm';
 
       return url;

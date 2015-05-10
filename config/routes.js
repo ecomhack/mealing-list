@@ -26,9 +26,8 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  '/event/view': {
-    view: 'event'
-  },
+  '/event/view/:id': 'EventController.view',
+  '/event/pay/:id': 'EventController.pay',
 
   '/foodpair': 'MainController.foodpairGateway',
 
@@ -39,9 +38,6 @@ module.exports.routes = {
 
   '/bt-token': 'MainController.btToken',
   '/checkout': 'MainController.checkout',
-  '/pay': {
-    view: 'pay'
-  }
 
 };
 
