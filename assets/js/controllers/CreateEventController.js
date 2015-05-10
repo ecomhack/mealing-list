@@ -1,3 +1,6 @@
+$('#datepicker').change(function(){
+    $('#datepicker').css('color', 'black');   
+})
 
 angular.module('mealingList')
   .controller('CreateEventController', function($scope, report) {

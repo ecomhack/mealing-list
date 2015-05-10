@@ -7,12 +7,12 @@
 <div ng-controller="CreateEventController">
   <div style="max-width: 300px" class="container">
     <input type="text" ng-model="title" placeholder="Event Title">
-    <input ng-model="date" type="datetime" placeholder="Event Date">
+    <input ng-model="date" type="date"  placeholder="Event Date" id="datepicker" style="color: #bbb;">
     <input type="text" ng-model="location" placeholder="Event Location">
 
     <br>
 
-    <button ng-click="createEvent()" class="btn btn-primary">Create Event!</button>
+    <button ng-click="createEvent()" class="btn btn-primary btn-submit">Create Event!</button>
   </div>
 </div>
 
