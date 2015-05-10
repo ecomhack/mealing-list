@@ -1,7 +1,7 @@
 // event.js
 
 $(function() {
-	console.log($('input[data-type="search"]'));
+	var searchInput = ($('input[data-type="search"]'));
 	$('input[data-type="search"]').on('keydown', function(e) {
 		var code = (e.keyCode ? e.keyCode : e.which);
 		console.log('AAAA', $(this).val(), code);
@@ -32,8 +32,8 @@ $(function() {
 					var li = $('<li><a>' + val.html + '</a></li>')
 						.appendTo($ul)
 						.click(function() {
-							console.log(val.text);
 							$(this).scope().createIngredient(val.text);
+							searchInput.val('');
 						});
 				});
 				$ul.listview("refresh");
