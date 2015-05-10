@@ -3,9 +3,9 @@
 var SphereClient = require('sphere-node-sdk').SphereClient;
 
 var Config = {
-  client_id: process.env.SPHERE_CLIENT || '',
-  client_secret: process.env.SPHERE_SECRET || '',
-  project_key: process.env.SPHERE_PROJECT || ''
+  client_id: process.env.SPHERE_CLIENT || 'hyWZkA729LJY-QFwug0IpVej',
+  client_secret: process.env.SPHERE_SECRET || 'YMEATGctVjEvpFFrc6JxOkDRsgmZeU2O',
+  project_key: process.env.SPHERE_PROJECT || 'manage_project:ecomhack-demo-45'
 };
 
 module.exports = {

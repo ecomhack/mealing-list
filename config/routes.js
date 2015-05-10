@@ -38,6 +38,8 @@ module.exports.routes = {
   '/proposals': 'ProposalController.getProposals',
   '/propose': 'ProposalController.propose',
 
+  '/event/:event/dish': 'DishController.getForEventDeep',
+
   '/bt-token': 'MainController.btToken',
   '/checkout': 'MainController.checkout',
 

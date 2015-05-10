@@ -31,7 +31,7 @@
       <li ng-repeat="ingredient in selectedDish.ingredients" class="clearfix">
       <button class="extra gravatar"
               ng-class="{ 'extra-active': !associationUnset(ingredient.providedBy) }"
-              ng-style="{ 'background-image': !assocationUnset(ingredient.providedBy) ? getGravatar(ingredient.providedBy) : 'none' }"
+              ng-style="{ 'background-image': !associationUnset(ingredient.providedBy) ? getGravatar(ingredient.providedBy) : 'none' }"
               ng-click="toggleProvidedBy(ingredient)">
           <span class="glyphicon glyphicon-ok"></span>
         </button>
