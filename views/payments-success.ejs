@@ -1,0 +1,12 @@
+<center>
+<% if (success) { %>
+	<h1>Payment Succesful, thanks!</h1>
+
+	<h4>You now have <%= amount %> less.</h4>
+
+	<span style="font-size: 72px;" class="glyphicon glyphicon-piggy-bank"></span>
+<% } else { %>
+	<h1>Payment Unsuccesful! :(</h1>
+	<h3>Please try again later ...</h3>
+<% } %>
+</center>
