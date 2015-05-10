@@ -25,7 +25,12 @@
     </button>
     <h1>Ingredients List</h1>
 
-    <input mealing-confirm="createIngredient()" type="text" ng-model="createIngredientInput" placeholder="Add Ingredient">
+    <!--<input mealing-confirm="createIngredient()" type="text" ng-model="createIngredientInput" placeholder="Add Ingredient">-->
+
+    <ul id="ingredients" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Add ingredient..." data-filter-theme="d">
+      <li><a href="#">Sugar</a></li>
+
+    </ul>
 
     <ul class="item-list">
       <li ng-repeat="ingredient in selectedDish.ingredients" class="clearfix">
