@@ -1,19 +1,19 @@
 
 <div ng-controller="PayController">
   <div data-role="controlgroup" data-type="horizontal">
-    <button ng-class="{ active: !checkout }" btn-default" ng-click="checkout = false">
+    <button ng-class="{ active: !checkout } btn-default" ng-click="checkout = false">
       <span class="glyphicon glyphicon-th-list"></span>
     </button>
     <button ng-class="{ active: checkout }" ng-click="checkout = true">
       <span class="glyphicon glyphicon-piggy-bank"></span>
     </button>
+
   </div>
 
   <br>
 
   <div ng-show="!checkout">
-    <h2 style="color: white; margin-top: 6px;">Things to be bought</h2>
-
+      <h1>Purchase List</h1>
     <ul class="item-list">
       <li ng-repeat="ingredient in ingredients">
         {{ ingredient.title }}
