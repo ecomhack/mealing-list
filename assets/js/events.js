@@ -1,5 +1,9 @@
 // event.js
 
+// SETTINGS
+var MAX_PROPOSALS = 10;
+var INGR_ID = 4824;
+
 $(function() {
 	var searchInput = ($('input[data-type="search"]'));
 	$('input[data-type="search"]').on('keydown', function(e) {
@@ -38,6 +42,30 @@ $(function() {
 				});
 				$ul.listview("refresh");
 				$ul.trigger("updatelayout");
+			});
+
+			// add some proposals to the list
+			var proposals = $('#proposals');
+			proposals.html('<li data-role="list-divider">You might also like:</li>');
+			
+			$.ajax({
+				url: "/proposals",
+				dataType: "json",
+				data: {
+					used: INGR_ID
+				}
+			}).then( function ( response ) {
+				$.each(response, function ( i, val ) {
+					if(i >= MAX_PROPOSALS) return;
+
+					var li = $('<li><a href="#"><img src="'+val.image+'">'+val.title+'</a></li>')
+						.appendTo(proposals)
+						.click(function() {
+							$(this).scope().createIngredient(val.title);
+						});
+				});
+				proposals.listview("refresh");
+				proposals.trigger("updatelayout");
 			});
 		}
 	})
