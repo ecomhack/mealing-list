@@ -6,6 +6,7 @@
   "keywords": [],
   "dependencies": {
     "MD5": "^1.2.1",
+    "braintree": "^1.24.0",
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
     "grunt-bower-task": "^0.4.0",

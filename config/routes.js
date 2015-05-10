@@ -35,7 +35,13 @@ module.exports.routes = {
   '/auth/twitter': 'ParticipantController.createTwitter',
   '/auth/twitter/callback': 'ParticipantController.twitterCallback',
 
-  '/proposals': 'ProposalController.getProposals'
+  '/proposals': 'ProposalController.getProposals',
+
+  '/bt-token': 'MainController.btToken',
+  '/checkout': 'MainController.checkout',
+  '/pay': {
+    view: 'pay'
+  }
 
 };
 
