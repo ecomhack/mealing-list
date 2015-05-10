@@ -39,7 +39,8 @@ module.exports.routes = {
   '/propose': 'ProposalController.propose',
 
   '/bt-token': 'MainController.btToken',
-  '/checkout': 'MainController.checkout'
+  '/checkout': 'MainController.checkout',
+
+  '/product': 'SphereController.getProduct'
 
 };
-
