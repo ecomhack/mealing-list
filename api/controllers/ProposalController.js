@@ -83,6 +83,16 @@ module.exports = {
         }
       });
     });
+  },
+
+  propose: function(req, res) {
+    ProposalIndex.queryIndex(req.param('q'), function(err, data) {
+      if (err)
+        return res.negotiate(err);
+
+      console.log(data);
+      return res.send(data);
+    })
   }
 };
 

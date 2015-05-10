@@ -2,7 +2,7 @@
 // (c) 2015 by Milan Gruner
 
 var CRAWL_BEGIN = 73;
-var CRAWL_END = 200;
+var CRAWL_END = 74;
 var URL = "https://api.foodpairing.com/ingredients/";
 
 function getFoodData(url, callback) {
@@ -18,9 +18,6 @@ function getFoodData(url, callback) {
 		success: function(data) {
 			callback(data);
 		},
-		xhrField: {
-			withCredentials: false
-		}
 	});
 }
 
