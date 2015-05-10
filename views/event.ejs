@@ -2,17 +2,16 @@
 <div ng-controller="EventController">
   <!-- DISHES LIST -->
   <div ng-show="!selectedDish" class="dishes-list">
-    <div data-role="controlgroup" data-type="horizontal">
-      <input type="text" ng-model="createDishInput" data-wrapper-class="controlgroup-textinput ui-btn">
-      <button ng-click="createDish()">
-        <span class="glyphicon glyphicon-plus"></span>
-      </button>
-    </div>
+    <input mealing-confirm="createDish()" type="text" ng-model="createDishInput">
 
-    <ul data-role="listview" data-inset="true">
+    <ul class="item-list">
       <li ng-repeat="dish in dishes" ng-click="selectDish(dish)">
-        <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-      {{ dish.title }}
+      <button class="extra"
+          ng-class="{ 'extra-active': dish.locked }"
+          ng-click="toggleLocked(dish, $event)">
+          <span class="glyphicon glyphicon-lock"></span>
+        </button>
+        <span class="glyphicon glyphicon-cutlery icon-text"></span> {{ dish.title }}
       </li>
     </ul>
   </div>
@@ -24,18 +23,14 @@
       <span class="glyphicon glyphicon-chevron-left"></span> {{ selectedDish.title }}
     </button>
 
-    <div class="input-group">
-      <input type="text" ng-model="createIngredientInput">
-      <div class="input-group-btn">
-        <button class="btn btn-default" ng-click="createIngredient()">
-          <span class="glyphicon glyphicon-plus"></span>
-        </button>
-      </div>
-    </div>
+    <input mealing-confirm="createIngredient()" type="text" ng-model="createIngredientInput">
 
-    <ul data-role="listview" data-inset="true">
-      <li ng-repeat="ingredient in selectedDish.ingredients">
-        <button class="pull-right btn btn-default">
+    <ul class="item-list">
+      <li ng-repeat="ingredient in selectedDish.ingredients" class="clearfix">
+      <button class="extra gravatar"
+              ng-class="{ 'extra-active': !associationUnset(ingredient.providedBy) }"
+              ng-style="{ 'background-image': !assocationUnset(ingredient.providedBy) ? getGravatar(ingredient.providedBy) : 'none' }"
+              ng-click="toggleProvidedBy(ingredient)">
           <span class="glyphicon glyphicon-ok"></span>
         </button>
         {{ ingredient.title }}
@@ -43,5 +38,7 @@
     </ul>
   </div>
   <!-- END INGREDIENT LIST -->
+
+  <mealing-login user="user"></mealing-login>
 </div>
 

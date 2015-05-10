@@ -8,4 +8,4 @@ angular.module('mealingList', [])
     status = status || 'Kein Code';
     var detail = err.message || JSON.stringify(err.body) || 'Keine Details.';
     alert(msg + ' ist fehlgeschlagen! (' + status + ')\n\n' + detail);
-  })
+  });

@@ -15,6 +15,10 @@ angular.module('mealingList')
       });
     });
 
+    $scope.associationUnset = function(foreignKey) {
+      return !foreignKey || foreignKey == '0';
+    };
+
     function findDishById(dishId) {
       for (var i = 0; i < $scope.dishes.length; i++) {
         if ($scope.dishes[i].id == dishId)
@@ -37,6 +41,9 @@ angular.module('mealingList')
             return;
 
           dish.ingredients.push(event.data);
+
+          // subscribe to events
+          io.socket.get('/ingredient/' + event.id);
           break;
         case 'updated':
           var dish = findDishById(event.data.dish);
@@ -69,6 +76,30 @@ angular.module('mealingList')
 
           $scope.dishes.push(event.data);
           break;
+        case 'updated':
+          var dish = findDishById(event.id);
+          if (!dish)
+            return;
+
+          // check if we got thrown out
+          if (event.data.locked &&
+              !$scope.ownsDishes(dish) &&
+              $scope.selectedDish == dish) {
+            $scope.selectedDish = undefined;
+          }
+
+          var keys = Object.keys(event.data);
+          keys.forEach(function(key) {
+            dish[key] = event.data[key];
+          });
+          break;
+        case 'destroyed':
+          var dish = findDishById(event.data.dish);
+          if (!dish)
+            return;
+
+          dish.splice(dish.indexOf(dish), 1);
+          break;
       }
 
       $scope.$apply();
@@ -77,6 +108,7 @@ angular.module('mealingList')
     $scope.createDish = function createDish() {
       io.socket.post('/dish', {
         title: $scope.createDishInput,
+        creator: localStorage.userId,
         event: eventId
       }, function(data, jwres) {
         if (!report('Creating Dish', jwres, true))
@@ -91,8 +123,62 @@ angular.module('mealingList')
     };
 
     $scope.selectDish = function(dish) {
+      if (dish && dish.locked && !$scope.ownsDishes(dish))
+        return;
+
        $scope.selectedDish = dish;
     };
+
+    $scope.ownsDishes = function(dish) {
+      return (typeof dish.creator === 'object' ? dish.creator.id : dish.creator) == localStorage.userId;
+    }
+
+    $scope.getGravatar = function(participant) {
+      console.log('GET', participant);
+      var url = 'http://www.gravatar.com/avatar/' + participant.emailHash + 's=56&d=mm';
+
+      return url;
+    };
+
+    $scope.toggleProvidedBy = function toggleProvidedBy(ingredient, event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      var val = localStorage.userId;
+      io.socket.put('/ingredient/' + ingredient.id, {
+        providedBy: $scope.associationUnset(ingredient.providedBy) ? val : 0
+      }, function(data, jwres) {
+        if (!report('Picking Ingredient', jwres, true))
+          return;
+
+        $scope.$apply(function() {
+          ingredient.providedBy = data.providedBy;
+        });
+      });
+    };
+
+    $scope.toggleLocked = function toggleLocked(dish, event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      if (!$scope.ownsDishes(dish))
+        return;
+
+      io.socket.put('/dish/' + dish.id, {
+        locked: !dish.locked
+      }, function(data, jwres) {
+        if (!report('Locking Event', jwres, true))
+          return;
+
+        $scope.$apply(function() {
+          dish.locked = data.locked;
+        });
+      });
+    }
 
     $scope.createIngredient = function createIngredient() {
       if (!$scope.selectedDish)

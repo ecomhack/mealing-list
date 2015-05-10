@@ -15,7 +15,7 @@ module.exports = {
       model: 'participant'
     },
 
-    locked: 'bool',
+    locked: 'boolean',
 
     ingredients: {
       collection: 'ingredient',

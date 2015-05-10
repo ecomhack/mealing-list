@@ -1,28 +1,37 @@
 
-<div class="modal fade" data-backdrop="static">
+<div class="modal" data-backdrop="static">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Enter Event!</h4>
       </div>
-      <div class="modal-body">
-        <button ng-click="twitterSignIn()" class="btn btn-primary" ng-disabled="working">
+      <div class="modal-body clearfix" ng-show="!userId">
+        <button ng-click="twitterSignIn()" class="btn btn-primary" ng-disabled="working || true">
           Sign in with Twitter
         </button>
 
-        <button ng-click="twitterSignIn()" class="btn btn-danger" ng-disabled="working">
+        <button ng-click="twitterSignIn()" class="btn btn-danger" ng-disabled="working || true">
           Sign in with Google+
         </button>
 
         <h5>Manual Login</h5>
-        <div class="input-group">
+
+        <div class="form-group">
           <input class="form-control" type="text" placeholder="Name" ng-model="name" ng-disabled="working">
-          <div class="input-group-btn">
-            <button class="btn btn-success" ng-disabled="!name || working" ng-click="manualSignIn()">
-              <span class="glyphicon glyphicon-ok"></span>
-            </button>
-          </div>
         </div>
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Email" ng-model="email" ng-disabled="working">
+        </div>
+        <button class="btn btn-success pull-right" ng-disabled="!name || !email || working" ng-click="manualSignIn()">
+          <span class="glyphicon glyphicon-ok"></span> Join Event!
+        </button>
+
+      </div>
+      <div class="modal-body" ng-show="userId">
+        <h3 style="display: flex; justify-content: center; align-items: center;">
+          <span class="glyphicon glyphicon-sunglasses" style="font-size: 72px; margin-right: 24px;"></span>
+          Loading Your Account ...
+        </h3>
       </div>
     </div>
   </div>
