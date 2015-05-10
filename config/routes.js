@@ -34,12 +34,10 @@ module.exports.routes = {
 
   '/bt-token': 'MainController.btToken',
   '/checkout': 'MainController.checkout',
-  '/test': {
-    view: 'payments-success',
-    locals: {
-      amount: '€' + '10.00'
-    }
+  '/pay': {
+    view: 'pay'
   }
+  
 
 };
 
