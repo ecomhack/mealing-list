@@ -1,8 +1,9 @@
 // megacrawler.js
 // (c) 2015 by Milan Gruner
 
-var CRAWL_BEGIN = 73;
-var CRAWL_END = 200;
+var DELAY = 500;
+var CRAWL_BEGIN = 183;
+var CRAWL_END = 300;
 var URL = "https://api.foodpairing.com/ingredients/";
 
 function getFoodData(url, callback) {
@@ -30,7 +31,9 @@ function saveEntry(data) {
 
 function fuckingCrawl() {
 	for(var i = CRAWL_BEGIN; i < CRAWL_END; i++) {
-		getFoodData(URL+i, saveEntry);
+		setTimeout(function() {
+			getFoodData(URL+i, saveEntry);
+		}, DELAY);
 	}
 }
 
